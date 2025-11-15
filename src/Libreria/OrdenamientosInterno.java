@@ -66,6 +66,7 @@ public static void quickSortArticulosPorPrecio(List<Articulo> articulos, int ini
 }
 
 private static int particionar(List<Articulo> articulos, int inicio, int fin) {
+    
     //Se elige el ultim elemento como pivote
     double pivote = articulos.get(fin).getPrecio();
     

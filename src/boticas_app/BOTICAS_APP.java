@@ -152,22 +152,22 @@ static void menuArticulos() {
                     int stock = sc.nextInt();
                     Articulo nuevo = new Articulo(codigo, nombre, precio,stock);
                     tablahash.insertar(nuevo);
-                    System.out.println("✅ Artículo agregado correctamente.");
+                    System.out.println("Artículo agregado correctamente.");
                     break;
 
                 case 4:
                     System.out.print("\nIngrese el código del artículo a eliminar: ");
                     String codigoEliminar = sc.nextLine();
                     tablahash.eliminar(codigoEliminar);
-                    System.out.println("🗑️ Artículo eliminado (si existía).");
+                    System.out.println(" Artículo eliminado (si existía).");
                     break;
 
                 case 5:
-                    System.out.println("👋 Saliendo del sistema...");
+                    System.out.println("Saliendo del sistema...");
                     break;
 
                 default:
-                    System.out.println("⚠️ Opción inválida, intente nuevamente.");
+                    System.out.println("Opción inválida, intente nuevamente.");
                     break;
             }
 

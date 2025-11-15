@@ -53,29 +53,34 @@ public class OrdenamientosInterno {
             pedidos.set(minIndex, pedidos.get(i));
             pedidos.set(i, temp);
         }
-    }
-     //ORDENAR LOS ARTIÍCULOS POR PRECIO DE FORMA RECURSIVA
+    } 
+    //ORDENAR PRODUCTO POR PRECIO QUICK SORT 
+    //====================================
 public static void quickSortArticulosPorPrecio(List<Articulo> articulos, int inicio, int fin) {
     if (inicio < fin) {
+        //Partir en dos , datos menores a la izquierda y mayores a la derecha, recursividad 
         int indiceParticion = particionar(articulos, inicio, fin);
         quickSortArticulosPorPrecio(articulos, inicio, indiceParticion - 1);
         quickSortArticulosPorPrecio(articulos, indiceParticion + 1, fin);
     }
 }
-// Método auxiliar que coloca el pivote en su posición correcta
-// y divide la lista en dos partes (menores y mayores al pivote)
+
 private static int particionar(List<Articulo> articulos, int inicio, int fin) {
-    // Se elige el último elemento del rango como pivote
+    //Se elige el ultim elemento como pivote
     double pivote = articulos.get(fin).getPrecio();
-    //i=limite entre los elementos 
+    
+      // i marcará el límite
     int i = inicio - 1;
+    
+    // Recorre desde el inicio hasta antes del pivote
     for (int j = inicio; j < fin; j++) { 
         if (articulos.get(j).getPrecio() <= pivote) {
             i++;
-            Collections.swap(articulos, i, j);
+            Collections.swap(articulos, i, j); // Intercambia los elementos para dejar los menores a la izquierda
         }
     }
-    Collections.swap(articulos, i + 1, fin);
+    Collections.swap(articulos, i + 1, fin); // Coloca el pivote en su posición correcta
     return i + 1;
     }
 }
+

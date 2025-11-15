@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 
 public class BusquedaExterna {
-
+//BUSQUEDA EXTERNA SENCUENCIAL (LINEA POR LINEA )
     // Ruta del archivo de productos
     private static final String ARCHIVO_PRODUCTOS = "productos.txt";
 
@@ -12,15 +12,17 @@ public class BusquedaExterna {
         try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_PRODUCTOS))) {
             String linea;
             boolean encontrado = false;
-
+            //leer cada linea del archivo 
             while ((linea = br.readLine()) != null) {
-                String[] datos = linea.split(";");
-                if (datos.length == 4) {
+                String[] datos = linea.split(";");//cada linea esta dividida por ;
+                if (datos.length == 4) {//Validacion
                     String codigo = datos[0];
                     String nombre = datos[1];
+                    
                     double precio = Double.parseDouble(datos[2]);
                     int stock = Integer.parseInt(datos[3]);
 
+                    //Comparacion del codigo buscado
                     if (codigo.equalsIgnoreCase(codigoBuscado)) {
                         System.out.println("\nProducto encontrado:");
                         System.out.println("Código: " + codigo);
@@ -28,7 +30,7 @@ public class BusquedaExterna {
                         System.out.println("Precio: " + precio);
                         System.out.println("Stock: " + stock);
                         encontrado = true;
-                        break;
+                        break;//Se detiene cuando lo encuentra 
                     }
                 }
             }
@@ -38,9 +40,9 @@ public class BusquedaExterna {
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("❌ No se encontró el archivo: " + ARCHIVO_PRODUCTOS);
+            System.out.println("No se encontró el archivo: " + ARCHIVO_PRODUCTOS);
         } catch (IOException e) {
-            System.out.println("⚠️ Error al leer el archivo: " + e.getMessage());
+            System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
 }

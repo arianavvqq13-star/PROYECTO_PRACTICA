@@ -53,5 +53,5 @@ public class TablaHash {
             }
             System.out.println();
         }
-    }
+    } 
 }
